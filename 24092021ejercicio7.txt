@@ -1,0 +1,72 @@
+package ejercicio7;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+
+public class EjercicioSiete {
+
+	//Declaración de un array de Strings con los mensajes que puede lanzar el programa que no se va a modificar
+	//0--> PAIS;  1--> CAPITAL;  2-->MAS PAISES; 3-->SEGUIR PROBANDO
+	final static String mensajes[] = {"Introduce un país", "¿Cuál es su capital?", "¿Quieres introducir más países?", "¿Quieres seguir jugando?"};
+	
+	public static void main(String[] args) {
+		
+		String pais, capital, ans;
+		HashMap<String,String> paisCapital = new HashMap<String,String>();
+		Scanner scan = new Scanner(System.in);
+		
+		
+		for ( int i = 0; i < 5; i++) {
+			pais = EjercicioSiete.primeraMayuscula(0, scan); //paso el 0 al metodo para que lance el mensaje de "Introduce un país" 
+			//y me devuelve el pais con la primera en mayus y las siguientes en minuscula
+			
+			capital = EjercicioSiete.primeraMayuscula(1, scan); //Lo mismo pero con el mensaje "¿Cuál es su capital?
+			
+			paisCapital.put(pais,capital);
+		}
+		
+		
+		//Comenzamos el siguiente bucle por si quiere seguir introduciendo datos
+		do {
+			ans = EjercicioSiete.primeraMayuscula(2, scan);
+			if(ans.equals("Si")) {
+				pais = EjercicioSiete.primeraMayuscula(0, scan);
+				capital = EjercicioSiete.primeraMayuscula(1, scan);
+			}
+			else {
+				System.out.println("Gracias por los datos, hemos recogido lo siguiente:");
+				System.out.println(paisCapital);
+			}
+			
+			
+		} 
+		while(ans.equals("Si"));
+		
+		
+		
+		//Cuando ya no quiere introducir más datos pedimos los paises y le devolvemos la capital tantas veces como quiera
+		do {
+			pais = EjercicioSiete.primeraMayuscula(0, scan);
+			System.out.println("La capital de " + pais + " es " + paisCapital.get(pais));
+			
+			ans = EjercicioSiete.primeraMayuscula(3, scan);
+		}
+		while(ans.equals("Si"));
+		
+		System.out.println("Ha sido divertido jugar contigo");
+	
+		
+		
+
+	}
+
+	public static String primeraMayuscula(int numOption, Scanner scan) {
+		
+		System.out.println(mensajes[numOption]);
+		String palabra = scan.nextLine();
+		palabra = palabra.substring(0,1).toUpperCase()+palabra.substring(1).toLowerCase();
+		return palabra;
+	}
+	
+}
