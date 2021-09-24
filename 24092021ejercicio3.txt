@@ -1,0 +1,41 @@
+package ejercicio3;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
+
+public class EjercicioTres {
+	
+	public static void main(String[] args) {
+		//EJERCICIO: CUANTOS DIAS HAS VIVIDO
+		LocalDate hoy = LocalDate.now();
+		Scanner scan = new Scanner(System.in);
+		int b = 0;
+		
+		System.out.println("Introduce tu fecha de nacimiento:");
+		System.out.println("DIA:");
+		int dd = scan.nextInt(); 
+		int a = dd;
+		System.out.println("MES:");
+		int mm = scan.nextInt();
+		a = a + (mm-1)*30;
+		System.out.println("AÑO:");
+		int yyyy = scan.nextInt();
+		a = a + yyyy*365;
+		
+		LocalDate cumpleanos = LocalDate.of(yyyy, mm, dd);
+		DateTimeFormatter miFormato = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
+		String formateadaf = cumpleanos.format(miFormato);
+		
+		System.out.println("Tu fecha de nacimiento es "+formateadaf);
+		b = hoy.getDayOfMonth() + (hoy.getMonthValue() - 1)*30 + hoy.getYear()*365;
+		
+		System.out.println("Has vivido "+ (b-a) + " días.");
+		
+		scan.close();
+		
+
+	}
+
+
+}
