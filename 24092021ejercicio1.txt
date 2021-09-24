@@ -1,0 +1,21 @@
+package ejercicio1;
+
+public class EjercicioUno {
+
+	public static void main(String[] args) {
+
+
+		System.out.println(suma(15));
+
+	}
+	
+	public static int suma(int x) {
+		
+		if (x>6) {
+			return x + suma(x-1);
+		}
+		else
+			return 0;
+	}
+
+}
