@@ -1,0 +1,42 @@
+package ejercicio5;
+
+import java.util.Scanner;
+
+public class EjercicioCinco {
+
+	public static void main(String[] args) {
+		int[][] notas = {{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0}}; //Cada Alumno es una fila en la que hay tres notas, cada una de un trimestre
+		Scanner scan = new Scanner(System.in);
+		
+		
+		//Lectura de las notas
+		System.out.println("Introduce las notas de los alumnos:");
+		for(int i = 0; i<notas.length; i++) {
+			System.out.println("ALUMNO "+ (i+1)+": ");
+			for (int j = 0; j<notas[i].length; j++) {
+				System.out.println("TRIMESTRE "+ (j+1)+": ");
+				notas[i][j] = scan.nextInt();
+			}
+		}
+		
+		//Notas medias de cada trimestre
+		float s = 0f;
+		System.out.println("Las notas medias son:");
+		for (int j = 0; j<notas[0].length; j++) {
+			for (int i = 0; i<notas.length; i++) {
+				s = s+notas[i][j];
+			}
+			System.out.println("TRIMESTRE "+(j+1)+": "+ (s/notas.length));
+			s = 0f;
+		}
+		
+		int n = 0;
+		System.out.println("Introduce la posición (del 1 al 5) del alumno para saber su media ");
+		n = scan.nextInt();
+		for (int j = 0; j<notas[n-1].length; j++) {
+			s = s+notas[n-1][j];
+		}
+		System.out.println("MEDIA: "+ (s/notas[n-1].length));
+	}
+
+}
