@@ -1,0 +1,60 @@
+package ejercicio8;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
+
+public class EjercicioOcho {
+
+	public static void main(String[] args) {
+		
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("Introduce una fecha:");
+		System.out.println("DIA:");
+		int dd = scan.nextInt(); 
+		System.out.println("MES:");
+		int mm = scan.nextInt();
+		System.out.println("AÑO:");
+		int yyyy = scan.nextInt();
+		LocalDate fechaUno = LocalDate.of(yyyy, mm, dd);
+		
+		
+		System.out.println("Introduce otra fecha:");
+		System.out.println("DIA:");
+		dd = scan.nextInt(); 
+		System.out.println("MES:");
+		mm = scan.nextInt();
+		System.out.println("AÑO:");
+		yyyy = scan.nextInt();
+		LocalDate fechaDos = LocalDate.of(yyyy, mm, dd);
+		
+		DateTimeFormatter miFormato = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
+		String formateadaUno = fechaUno.format(miFormato);
+		String formateadaDos = fechaDos.format(miFormato);
+		
+		/* Se compara primero el año. Si son iguales se pasa a comparar el mes. Si son iguales se pasa a comparar el día.*/
+		if(fechaUno.getYear() == fechaDos.getYear()) {
+			if(fechaUno.getMonthValue() == fechaDos.getMonthValue()) {
+				if(fechaUno.getDayOfMonth() == fechaDos.getDayOfMonth())
+					System.out.println(formateadaUno + " y " + formateadaDos + " son la misma fecha");
+				else if (fechaUno.getDayOfMonth() > fechaDos.getDayOfMonth())
+					System.out.println(formateadaUno + " es una fecha posterior a " + formateadaDos);
+				else 
+					System.out.println(formateadaUno + " es una fecha anterior a " + formateadaDos);
+			}
+			else if(fechaUno.getMonthValue() > fechaDos.getMonthValue())
+				System.out.println(formateadaUno + " es una fecha posterior a " + formateadaDos);
+			else
+				System.out.println(formateadaUno + " es una fecha anterior a " + formateadaDos);
+		}
+		else if (fechaUno.getYear() > fechaDos.getYear())
+			System.out.println(formateadaUno + " es una fecha posterior a " + formateadaDos);
+		else
+			System.out.println(formateadaUno + " es una fecha anterior a " + formateadaDos);
+		
+		scan.close();
+		
+	}
+
+}
