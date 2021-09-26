@@ -1,0 +1,8 @@
+package ejercicio5;
+
+public interface poligono {
+	public double area(String nombre, int numLados, double dimensiones[]);//se devolvera el area del poligono
+	public double angulos(int numLados, double angulosConocidos);//dados todos los angulos menos uno se devolverá el valor del angulo que falta
+	public int divisionTriangulos(int numLados); //decvolverá en cuantos triangulos se puede dividir
+
+}

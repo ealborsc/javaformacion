@@ -1,0 +1,68 @@
+package ejercicio4;
+
+
+/* La clase Object es la clase Madre de todas las clases en Java, por lo tanto cualquier clase en Java extiende de la clase Object 
+y por tanto es una clase Object. Es por esto que todos los objetos pueden acceder a métodos con el getClass() y más sin que estos 
+estén implementados explícitamente en su definición de clase 
+ */
+public class Persona {
+
+	//ATRIBUTOS DE LA CLASE PEROSONA
+	String nombre;
+	String apellidoUno;
+	String apellidoDos;
+	String paisOrigen;
+	String dni;
+	
+	//Métodos getters y setters de los atributos de la clase
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public String getApellidoUno() {
+		return apellidoUno;
+	}
+	public void setApellidoUno(String apellidoUno) {
+		this.apellidoUno = apellidoUno;
+	}
+	public String getApellidoDos() {
+		return apellidoDos;
+	}
+	public void setApellidoDos(String apellidoDos) {
+		this.apellidoDos = apellidoDos;
+	}
+	public String getPaisOrigen() {
+		return paisOrigen;
+	}
+	public void setPaisOrigen(String paisOrigen) {
+		this.paisOrigen = paisOrigen;
+	}
+	public String getDni() {
+		return dni;
+	}
+	public void setDni(String dni) {
+		this.dni = dni;
+	}
+	
+	//Método con parámetros
+	public Persona(String nombre, String apellidoUno, String apellidoDos, String paisOrigen, String dni) {
+		super();
+		this.nombre = nombre;
+		this.apellidoUno = apellidoUno;
+		this.apellidoDos = apellidoDos;
+		this.paisOrigen = paisOrigen;
+		this.dni = dni;
+	}
+	
+	
+	//Métodos sin parámetros
+	
+	public Persona() {
+		super();
+	}
+
+
+	
+}
